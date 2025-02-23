@@ -6,12 +6,19 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
+import { auth, signOut } from "@/auth";
+import { Button } from "@/components/ui/button";
+import ROUTES from "@/constants/routes";
 
 
 
 
-export default function Home() {
+export default async function Home() {
+
+  const session = await auth();
+  console.log(session);
+
   return (
     <div className="grid min-h-screen grid-rows-[20px_1fr_20px] items-center justify-items-center gap-16 p-8 pb-20 font-[family-name:var(--font-geist-sans)] sm:p-20">
       <main className="row-start-2 flex flex-col items-center gap-8 sm:items-start">
@@ -26,6 +33,13 @@ export default function Home() {
           <DropdownMenuItem>Subscription</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
+
+      <form className="px-8 py-4" action={async () => {
+        "use server";
+        await signOut({redirectTo: ROUTES.SIGN_IN});
+      }}>
+        <Button type="submit">Log Out</Button>
+      </form>
 
       </main>
       <footer className="row-start-3 flex flex-wrap items-center justify-center gap-6">

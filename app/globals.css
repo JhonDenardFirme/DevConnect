@@ -6,108 +6,141 @@
 
 
 @layer utilities {
+  .bg1{
+    @apply bg-slate-50 dark:bg-slate-950;
+  }
+
+  .bg2{
+    @apply bg-slate-200 dark:bg-slate-900;
+  }
+
+  .bg3{
+    @apply bg-slate-300 dark:bg-slate-800;
+  }
+
+
+
+  .text-h1{
+    @apply text-4xl font-bold text-slate-950 dark:text-slate-50
+  }
+
+  .text-h2{
+    @apply text-2xl font-bold text-slate-950 dark:text-slate-50
+  }
+
+  .text-h3{
+    @apply text-xl font-bold text-slate-950 dark:text-slate-50
+  }
+  
+  .text-pxs{
+    @apply text-xs text-slate-950 dark:text-slate-50
+  }
+
+  
+
+
   .background-light850_dark100 {
-    @apply bg-light-850 dark:bg-dark-100;
+    @apply bg-light-850 dark:bg-neutral-100;
   }
 
   .background-light900_dark200 {
-    @apply bg-light-900 dark:bg-dark-200;
+    @apply bg-light-900 dark:bg-neutral-200;
   }
 
   .background-light900_dark300 {
-    @apply bg-light-900 dark:bg-dark-300;
+    @apply bg-light-900 dark:bg-neutral-300;
   }
 
   .background-light800_darkgradient {
-    @apply bg-light-800 dark:dark-gradient;
+    @apply bg-light-800 dark:neutral-gradient;
   }
 
   .background-light800_dark400 {
-    @apply bg-light-800 dark:bg-dark-400 !important;
+    @apply bg-light-800 dark:bg-neutral-400 !important;
   }
 
   .background-light700_dark400 {
-    @apply bg-light-700 dark:bg-dark-400;
+    @apply bg-light-700 dark:bg-neutral-400;
   }
 
   .background-light700_dark300 {
-    @apply bg-light-700 dark:bg-dark-300;
+    @apply bg-light-700 dark:bg-neutral-300;
   }
 
   .background-light800_dark400 {
-    @apply bg-light-800 dark:bg-dark-400;
+    @apply bg-light-800 dark:bg-neutral-400;
   }
 
   .background-light800_dark300 {
-    @apply bg-light-800 dark:bg-dark-300 !important;
+    @apply bg-light-800 dark:bg-neutral-300 !important;
   }
 
   .background-light800_dark200 {
-    @apply bg-light-800 dark:bg-dark-200;
+    @apply bg-light-800 dark:bg-slate-200;
   }
 
   .background-dark400_light900 {
-    @apply dark:bg-dark-400 bg-light-900 !important;
+    @apply dark:bg-dark-400 bg-slate-950 !important;
   }
 
   .text-dark100_light900 {
-    @apply text-dark-100 dark:text-light-900 !important;
+    @apply text-dark-100 dark:text-neutral-900 !important;
   }
 
   .text-dark200_light900 {
-    @apply text-dark-200 dark:text-light-900;
+    @apply text-dark-200 dark:text-neutral-900;
   }
 
   .text-dark200_light800 {
-    @apply text-dark-200 dark:text-light-800 !important;
+    @apply text-dark-200 dark:text-neutral-800 !important;
   }
 
   .text-dark300_light700 {
-    @apply text-dark-300 dark:text-light-700;
+    @apply text-dark-300 dark:text-neutral-700;
   }
 
   .text-dark400_light700 {
-    @apply text-dark-400 dark:text-light-700;
+    @apply text-dark-400 dark:text-neutral-700;
   }
 
   .text-dark500_light700 {
-    @apply text-dark-500 dark:text-light-700 !important;
+    @apply text-dark-500 dark:text-neutral-700 !important;
   }
 
   .text-dark500_light500 {
-    @apply text-dark-500 dark:text-light-500;
+    @apply text-dark-500 dark:text-neutral-500;
   }
 
   .text-dark500_light400 {
-    @apply text-dark-500 dark:text-light-400;
+    @apply text-dark-500 dark:text-neutral-400;
   }
 
   .text-dark300_light900 {
-    @apply text-dark-300 dark:text-light-900 !important;
+    @apply text-dark-300 dark:text-neutral-900 !important;
   }
 
   .text-dark400_light800 {
-    @apply text-dark-400 dark:text-light-800;
+    @apply text-dark-400 dark:text-neutral-800;
   }
 
   .text-light400_light500 {
-    @apply text-light-400 dark:text-light-500 !important;
+    @apply text-light-400 dark:text-neutral-500 !important;
   }
 
   .text-dark400_light500 {
-    @apply text-dark-400 dark:text-light-500;
+    @apply text-dark-400 dark:text-neutral-500;
   }
 
   .text-dark400_light900 {
-    @apply text-dark-400 dark:text-light-900 !important;
+    @apply text-dark-400 dark:text-neutral-900 !important;
   }
 
   .text-light400_light500 {
-    @apply text-light-400 dark:text-light-500 !important;
+    @apply text-light-400 dark:text-neutral-500 !important;
   }
 
   .light-border {
-    @apply border-light-800 dark:border-dark-300;
+    @apply border-light-800 dark:border-neutral-300;
   }
 
   .light-border-2 {
@@ -301,3 +334,4 @@
     --radius: 0.5rem;
   }
 }
+
