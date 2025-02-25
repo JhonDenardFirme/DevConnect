@@ -33,7 +33,7 @@
   }
 
   .text-psm{
-    @apply text-xs text-slate-950 dark:text-slate-50
+    @apply text-sm text-slate-950 dark:text-slate-50
   }
   
   .text-pxs{
@@ -326,14 +326,35 @@
     );
   }
 
-
-  .scrollbar-hidden::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for Chrome, Safari, Edge */
-  }
   
-  .scrollbar-hidden {
-    -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
-    scrollbar-width: none; /* Hide scrollbar for Firefox */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+    border-radius: 2px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 50px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }
 
