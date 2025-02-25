@@ -31,6 +31,10 @@
   .text-h3{
     @apply text-xl font-bold text-slate-950 dark:text-slate-50
   }
+
+  .text-psm{
+    @apply text-xs text-slate-950 dark:text-slate-50
+  }
   
   .text-pxs{
     @apply text-xs text-slate-950 dark:text-slate-50
@@ -228,7 +232,7 @@
   }
 
   .placeholder {
-    @apply placeholder:text-light-400 dark:placeholder:text-light-500;
+    @apply placeholder:text-slate-400 dark:placeholder:text-slate-500;
   }
 
   .invert-colors {
