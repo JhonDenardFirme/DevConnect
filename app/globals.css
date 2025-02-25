@@ -7,7 +7,7 @@
 
 @layer utilities {
   .bg1{
-    @apply bg-slate-50 dark:bg-slate-950;
+    @apply bg-slate-50 dark:bg-gray-950;
   }
 
   .bg2{
@@ -324,6 +324,16 @@
       rgba(23, 28, 35, 0.41) 0%,
       rgba(19, 22, 28, 0.7) 100%
     );
+  }
+
+
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, Edge */
+  }
+  
+  .scrollbar-hidden {
+    -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
   }
 }
 

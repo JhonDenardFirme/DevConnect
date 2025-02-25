@@ -7,7 +7,7 @@ import MobileNavigation from "./MobileNavigation";
 
 const Navbar = () => {
   return (
-    <nav className='flex-between backgroud-light900_dark200 z-50 w-full p-8 dark:shadow-none sm:px-12'>
+    <nav className='flex-between fixed z-50 h-[16vh] w-full bg-neutral-50 p-8 dark:bg-neutral-950 dark:shadow-none sm:px-12 md:bg-transparent dark:md:bg-transparent'>
       <Link href="/" className="flex items-center gap-1">
         <Image 
           src="/images/DevConnectLogo.png"
@@ -17,12 +17,12 @@ const Navbar = () => {
           className="h-10 w-auto"
         />
         <p className="h2-bold">
-          <span>Dev</span>
+          <span className="!text-slate-950 dark:!text-slate-50">Dev</span>
           <span className="text-[#f0842b]">Connect</span>
         </p>
       </Link>
 
-      <div className="flex flex-row gap-4 items-center justify-center">
+      <div className="flex flex-row items-center justify-center gap-4">
         <ModeToggle></ModeToggle>
         <MobileNavigation></MobileNavigation>
       </div>

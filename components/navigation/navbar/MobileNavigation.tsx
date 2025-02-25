@@ -19,9 +19,9 @@ const MobileNavigation = () => {
   return (
     <Sheet>
   <SheetTrigger asChild>
-    <Image src="/icons/hamburger.svg" width={36} height={36} alt="Menu" className="invert dark:invert-0 sm:hidden"></Image>
+    <Image src="/icons/hamburger.svg" width={36} height={36} alt="Menu" className="invert dark:invert-0 md:hidden"></Image>
   </SheetTrigger>
-  <SheetContent side="left">
+  <SheetContent side="left" className="scrollbar-hidden">
     
       <SheetTitle className="hidden">Navigation</SheetTitle> 
       <Link href="/" className="flex items-center gap-1">
@@ -39,10 +39,17 @@ const MobileNavigation = () => {
             </section>
         </SheetClose>
 
-        <div className="flex flex-col gap-4">
+        
+
+        <div className="flex flex-col gap-4 mt-6">
+            <div className="h-[1px] w-full bg-slate-950/10 dark:bg-slate-50/10 mb-4"></div>
+
             <SheetClose asChild>
                 <Link href={ROUTES.SIGN_IN}>
-                    <Button className="w-full">Log In</Button>
+                    <Button className="w-full !bg2">
+                    <Image src="/icons/account.svg" width={20} height={20} alt="Log In" className="object-contain"></Image>
+                    <p className="text-psm">Log In</p>   
+                    </Button>
                 </Link>
             </SheetClose>
         </div>

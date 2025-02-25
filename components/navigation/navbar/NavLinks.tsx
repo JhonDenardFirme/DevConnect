@@ -23,9 +23,9 @@ const NavLinks = ( {isMobileNav = false} : {isMobileNav?: boolean}) => {
             }
 
             const LinkComponent= (
-                <Link href={item.route} key={item.label} className={cn(isActive ? "!bg-orange-500 rounded-lg text-psm" : "text-psm", "flex items-center justify-start gap-4 bg-transparent p-4")}>
+                <Link href={item.route} key={item.label} className={cn(isActive ? "!bg-orange-500 rounded-lg text-psm" : "text-psm", "flex items-center justify-start gap-4 bg-transparent p-4 w-full")}>
                     <Image src={item.imgURL} alt={item.label} width={20} height={20} className={cn({"invert dark:invert-0": !isActive})}></Image>
-                    <p className={cn(isActive? "text-psm" : "text-psm", !isMobileNav && "max-lg:hidden")}>{item.label}</p>
+                    <p className={cn(isActive? "text-psm !font-semibold invert dark:invert-0" : "text-psm", !isMobileNav && "max-md:hidden")}>{item.label}</p>
                 </Link>
             );
 
