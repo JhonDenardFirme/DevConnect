@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ThemeProvider from "@/context/theme";
 import Navbar from "@/components/navigation/navbar";
 
+
 export const metadata: Metadata = {
   title: "DevConnect",
   description: "Empowering Solutions to pave the Digital Road",
@@ -17,6 +18,7 @@ export default function RootLayout({
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <Navbar></Navbar>
+          
         {children}
         </ThemeProvider>
       </body>

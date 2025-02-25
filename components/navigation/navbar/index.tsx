@@ -2,6 +2,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import ModeToggle from "./theme";
+import MobileNavigation from "./MobileNavigation";
+
 
 const Navbar = () => {
   return (
@@ -19,8 +21,13 @@ const Navbar = () => {
           <span className="text-[#f0842b]">Connect</span>
         </p>
       </Link>
- 
-      <ModeToggle></ModeToggle>
+
+      <div className="flex flex-row gap-4 items-center justify-center">
+        <ModeToggle></ModeToggle>
+        <MobileNavigation></MobileNavigation>
+      </div>
+
+      
     </nav>
   );
 };
