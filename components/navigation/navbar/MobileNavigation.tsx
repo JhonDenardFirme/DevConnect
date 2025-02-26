@@ -21,7 +21,7 @@ const MobileNavigation = () => {
   <SheetTrigger asChild>
     <Image src="/icons/hamburger.svg" width={36} height={36} alt="Menu" className="invert dark:invert-0 md:hidden"></Image>
   </SheetTrigger>
-  <SheetContent side="left" className="scrollbar-hidden">
+  <SheetContent side="left" className="">
     
       <SheetTitle className="hidden">Navigation</SheetTitle> 
       <Link href="/" className="flex items-center gap-1">
@@ -32,7 +32,7 @@ const MobileNavigation = () => {
         </p>
       </Link>
 
-      <div className="flex h-[calc(100vh-80px)] flex-col justify-between overflow-y-auto">
+      <div className="flex h-[calc(100vh-80px)] flex-col justify-between overflow-y-auto no-scrollbar">
         <SheetClose asChild>
             <section className="flex h-full flex-col gap-6 pt-16">
                 <NavLinks isMobileNav></NavLinks>

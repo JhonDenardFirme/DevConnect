@@ -368,5 +368,13 @@
   :root {
     --radius: 0.5rem;
   }
+
+  :root {
+    --background: #f8f9fa; /* Example */
+  }
+  
+  .dark {
+    --background: #oklch(0.145 0 0); /* Dark mode background */
+  }
 }
 

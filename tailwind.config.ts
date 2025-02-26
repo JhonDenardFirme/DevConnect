@@ -9,6 +9,9 @@ export default {
   ],
   theme: {
   	extend: {
+		screens: {
+			xs: "200px", // Define xs screen (adjust as needed)
+		},
   		colors: {
   			background: 'var(--background)',
   			foreground: 'var(--foreground)',

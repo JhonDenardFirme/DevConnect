@@ -1,94 +1,91 @@
 import Image from "next/image";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+
 import { auth, signOut } from "@/auth";
 import { Button } from "@/components/ui/button";
 import ROUTES from "@/constants/routes";
+import Link from "next/link";
+import LocalSearch from "@/components/search/LocalSearch";
 
 
+interface SearchParams {
+  searchParams: Promise<{[key: string]: string}>
+}
+
+const questions = [
+  {
+    _id: "1",
+    title: "How to learn React?",
+    description: "I want to learn React, can anyone help me?",
+    tags: [
+      { _id: "1", name: "React" },
+      { _id: "2", name: "JavaScript" },
+    ],
+    author: { _id: "1", name: "John Doe" },
+    upvotes: 10,
+    answers: 5,
+    views: 100,
+    createdAt: new Date(),
+  },
+  {
+    _id: "2",
+    title: "How to learn JavaScript?",
+    description: "I want to learn JavaScript, can anyone help me?",
+    tags: [
+      { _id: "1", name: "React" },
+      { _id: "2", name: "JavaScript" },
+    ],
+    author: { _id: "1", name: "John Doe" },
+    upvotes: 10,
+    answers: 5,
+    views: 100,
+    createdAt: new Date(),
+  },
+];
 
 
-export default async function Home() {
+export default async function Home({searchParams} : SearchParams) {
 
   const session = await auth();
   console.log(session);
 
+  const {query = ""} = await searchParams;
+
+  const filteredQuestions = questions.filter((question) => question.title.toLowerCase().includes(query?.toLowerCase()));
+
+
   return (
-    <div className="grid min-h-screen grid-rows-[20px_1fr_20px] items-center justify-items-center gap-16 p-8 pb-20 font-[family-name:var(--font-geist-sans)] sm:p-20">
-      <main className="row-start-2 flex flex-col items-center gap-8 sm:items-start">
-      <DropdownMenu>
-        <DropdownMenuTrigger>Open</DropdownMenuTrigger>
-        <DropdownMenuContent>
-          <DropdownMenuLabel>My Account</DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem>Profile</DropdownMenuItem>
-          <DropdownMenuItem>Billing</DropdownMenuItem>
-          <DropdownMenuItem>Team</DropdownMenuItem>
-          <DropdownMenuItem>Subscription</DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
+    <div className="px-16 mt-[16vh] py-16">
+      <div className="flex flex-row sm:flex-row justify-between">
+        <h1 className="text-h3">All Questions</h1>
 
-      <form className="px-8 py-4" action={async () => {
-        "use server";
-        await signOut({redirectTo: ROUTES.SIGN_IN});
-      }}>
-        <Button type="submit">Log Out</Button>
-      </form>
+        <Button className="!bg-orange-500">
+          <Link href={ROUTES.ASK_QUESTIONS} className="">Ask a Question</Link>
+        </Button>
 
-      </main>
-      <footer className="row-start-3 flex flex-wrap items-center justify-center gap-6">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+
+      </div>
+
+      <div className="mt-8 flex flex-row w-full">
+          <div className="flex-1">
+            <LocalSearch imgSrc="/icons/search.svg" placeholder="Search questions..." otherClasses="" route="/"></LocalSearch>
+          </div>
+
+          <div>
+            Filters
+          </div>
+      </div>
+
+      <div className="flex flex-col justify-center items-center gap-8">
+        {
+          filteredQuestions.map((question) => (
+            <div key={question._id} className="bg2 rounded-md py-4 px-8 w-full">
+              <h3>{question.title}</h3>
+            </div>
+          ))
+        }
+        
+      </div>
     </div>
   );
 }
