@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import ROUTES from "@/constants/routes";
 import Link from "next/link";
 import LocalSearch from "@/components/search/LocalSearch";
+import HomeFilter from "@/components/filters/HomeFilter";
 
 
 interface SearchParams {
@@ -31,7 +32,7 @@ const questions = [
     title: "How to learn JavaScript?",
     description: "I want to learn JavaScript, can anyone help me?",
     tags: [
-      { _id: "1", name: "React" },
+      { _id: "1", name: "JavaScript" },
       { _id: "2", name: "JavaScript" },
     ],
     author: { _id: "1", name: "John Doe" },
@@ -42,15 +43,24 @@ const questions = [
   },
 ];
 
-
 export default async function Home({searchParams} : SearchParams) {
 
   const session = await auth();
   console.log(session);
 
-  const {query = ""} = await searchParams;
+  
+  const {query = "", filter = ""} = await searchParams;
 
-  const filteredQuestions = questions.filter((question) => question.title.toLowerCase().includes(query?.toLowerCase()));
+
+  const filteredQuestions = questions.filter((question) => {
+    const matchesQuery = question.title
+      .toLowerCase()
+      .includes(query.toLowerCase());
+    const matchesFilter = filter
+      ? question.tags[0].name.toLowerCase() === filter.toLowerCase()
+      : true;
+    return matchesQuery && matchesFilter;
+  });
 
 
   return (
@@ -66,13 +76,13 @@ export default async function Home({searchParams} : SearchParams) {
 
       </div>
 
-      <div className="mt-8 flex flex-row w-full">
+      <div className="mt-8 flex flex-col w-full">
           <div className="flex-1">
             <LocalSearch imgSrc="/icons/search.svg" placeholder="Search questions..." otherClasses="" route="/"></LocalSearch>
           </div>
 
           <div>
-            Filters
+            <HomeFilter></HomeFilter>
           </div>
       </div>
 
