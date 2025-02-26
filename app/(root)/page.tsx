@@ -6,6 +6,7 @@ import ROUTES from "@/constants/routes";
 import Link from "next/link";
 import LocalSearch from "@/components/search/LocalSearch";
 import HomeFilter from "@/components/filters/HomeFilter";
+import QuestionCard from "@/components/cards/QuestionCard";
 
 
 interface SearchParams {
@@ -21,7 +22,7 @@ const questions = [
       { _id: "1", name: "React" },
       { _id: "2", name: "JavaScript" },
     ],
-    author: { _id: "1", name: "John Doe" },
+    author: { _id: "1", name: "John Doe", image: "https://plus.unsplash.com/premium_photo-1689977968861-9c91dbb16049?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8fDA%3D" },
     upvotes: 10,
     answers: 5,
     views: 100,
@@ -35,11 +36,39 @@ const questions = [
       { _id: "1", name: "JavaScript" },
       { _id: "2", name: "JavaScript" },
     ],
-    author: { _id: "1", name: "John Doe" },
+    author: { _id: "1", name: "John Doe", image: "https://lh3.googleusercontent.com/a/ACg8ocJVKdEW91TsuE3cLZ10AyyoJywmu1KP4qZvANnc7cBENohUGyg_=s96-c"},
+    upvotes: 10,
+    answers: 5,
+    views: 100,
+    createdAt: new Date("2021-09-01"),
+  },
+  {
+    _id: "1",
+    title: "How to learn React?",
+    description: "I want to learn React, can anyone help me?",
+    tags: [
+      { _id: "1", name: "React" },
+      { _id: "2", name: "JavaScript" },
+    ],
+    author: { _id: "1", name: "John Doe", image: "https://plus.unsplash.com/premium_photo-1689977968861-9c91dbb16049?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8fDA%3D" },
     upvotes: 10,
     answers: 5,
     views: 100,
     createdAt: new Date(),
+  },
+  {
+    _id: "2",
+    title: "How to learn JavaScript?",
+    description: "I want to learn JavaScript, can anyone help me?",
+    tags: [
+      { _id: "1", name: "JavaScript" },
+      { _id: "2", name: "JavaScript" },
+    ],
+    author: { _id: "1", name: "John Doe", image: "https://lh3.googleusercontent.com/a/ACg8ocJVKdEW91TsuE3cLZ10AyyoJywmu1KP4qZvANnc7cBENohUGyg_=s96-c"},
+    upvotes: 10,
+    answers: 5,
+    views: 100,
+    createdAt: new Date("2021-09-01"),
   },
 ];
 
@@ -86,12 +115,13 @@ export default async function Home({searchParams} : SearchParams) {
           </div>
       </div>
 
-      <div className="flex flex-col justify-center items-center gap-8">
+      <div className="flex flex-col justify-center items-center gap-4 mt-8">
         {
           filteredQuestions.map((question) => (
-            <div key={question._id} className="bg2 rounded-md py-4 px-8 w-full">
-              <h3>{question.title}</h3>
-            </div>
+            <QuestionCard key={question._id} question={question}>
+
+            </QuestionCard>
+
           ))
         }
         
