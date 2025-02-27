@@ -14,7 +14,6 @@ interface Props {
 
 const TagCard = ({_id, name, questions, showCount, compact} : Props) => {
     const iconClass = getDeviconClassname(name);
-    console.log(iconClass);
   return (
     
     <Link href={ROUTES.TAGS(_id)} className="flex justify-between items-center">
